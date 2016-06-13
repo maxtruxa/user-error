@@ -1,0 +1,33 @@
+{
+  "name": "@maxtruxa/base-error",
+  "version": "0.1.0",
+  "description": "Easily extensible error class for Node.js",
+  "main": "index.js",
+  "author": "Max Truxa <dev@maxtruxa.com> (http://maxtruxa.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.assign": "^4.0.9"
+  },
+  "devDependencies": {
+    "eslint": "^2.5.3",
+    "expect.js": "^0.3.1",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5"
+  },
+  "engines": {
+    "node": "^4.2.0"
+  },
+  "scripts": {
+    "test": "mocha --opts test/mocha.opts test/*.js",
+    "coverage": "istanbul cover _mocha -- --reporter dot --opts test/mocha.opts test/*.js",
+    "lint": "eslint --ignore-path .gitignore ."
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    ".eslintrc.yaml",
+    "examples/",
+    "test/"
+  ]
+}
