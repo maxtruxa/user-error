@@ -1,25 +1,25 @@
 'use strict';
 
-const BaseError = require('..');
+const UserError = require('..');
 
 function fail() {
-  throw new BaseError('something failed');
+  throw new UserError('something failed');
 }
 
 function fail2() {
-  throw new BaseError('something else failed', {foo: 'bar'});
+  throw new UserError('something else failed', {foo: 'bar'});
 }
 
 try {
   fail();
 } catch (err) {
   console.error(err);
-  // => { [BaseError: something failed]
-  //      name: 'BaseError',
+  // => { [UserError: something failed]
+  //      name: 'UserError',
   //      message: 'something failed' }
   console.error(err.stack);
-  // => BaseError: something failed
-  //        at fail (/xxx/base-error/examples/simple.js:6:9)
+  // => UserError: something failed
+  //        at fail (/xxx/user-error/examples/simple.js:6:9)
   //        ...
 }
 
@@ -27,13 +27,13 @@ try {
   fail2();
 } catch (err) {
   console.error(err);
-  // { [BaseError: something else failed]
+  // { [UserError: something else failed]
   //   foo: 'bar',
-  //   name: 'BaseError',
+  //   name: 'UserError',
   //   message: 'something else failed' }
   console.error(err.stack);
-  // => BaseError: something else failed
-  //        at fail2 (/xxx/base-error/examples/simple.js:10:9)
+  // => UserError: something else failed
+  //        at fail2 (/xxx/user-error/examples/simple.js:10:9)
   //        ...
 }
 

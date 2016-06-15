@@ -1,9 +1,9 @@
 'use strict';
 
-const BaseError = require('..');
+const UserError = require('..');
 
 function fail() {
-  throw new BaseError('something failed', {
+  throw new UserError('something failed', {
     test: 'foobar',
     code: 1234
   });
@@ -13,7 +13,7 @@ try {
   fail();
 } catch (err) {
   console.log(JSON.stringify(err));
-  // => {"test":"foobar","code":1234,"name":"BaseError",
+  // => {"test":"foobar","code":1234,"name":"UserError",
   //     "message":"something failed"}
 }
 
