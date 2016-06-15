@@ -16,6 +16,7 @@
     "lodash.assign": "^4.0.9"
   },
   "devDependencies": {
+    "coveralls": "^2.11.9",
     "eslint": "^2.5.3",
     "expect.js": "^0.3.1",
     "istanbul": "^0.4.2",
@@ -26,6 +27,7 @@
   },
   "scripts": {
     "test": "mocha --opts test/mocha.opts test/*.test.js",
+    "test-ci": "istanbul cover _mocha --report lcovonly -- --opts test/mocha.opts test/*.test.js",
     "coverage": "istanbul cover _mocha -- --reporter dot --opts test/mocha.opts test/*.test.js",
     "lint": "eslint --ignore-path .gitignore ."
   },
