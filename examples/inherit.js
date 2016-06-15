@@ -1,14 +1,14 @@
 'use strict';
 
 const util = require('util');
-const BaseError = require('..');
+const UserError = require('..');
 
 function MyError(id, message, properties) {
-  BaseError.call(this, message, properties);
+  UserError.call(this, message, properties);
   this.id = id;
 }
 
-util.inherits(MyError, BaseError);
+util.inherits(MyError, UserError);
 
 function fail() {
   throw new MyError('test', 'something failed');
@@ -24,7 +24,7 @@ try {
   //      id: 'test' }
   console.error(err.stack);
   // => MyError: something failed
-  //        at fail (/xxx/base-error/examples/inherit.js:14:9)
+  //        at fail (/xxx/user-error/examples/inherit.js:14:9)
   //        ...
 }
 

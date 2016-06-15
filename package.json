@@ -1,5 +1,5 @@
 {
-  "name": "@maxtruxa/base-error",
+  "name": "user-error",
   "version": "0.1.0",
   "description": "Easily extensible error class for Node.js",
   "main": "index.js",
@@ -15,11 +15,11 @@
     "mocha": "^2.4.5"
   },
   "engines": {
-    "node": "^4.2.0"
+    "node": "^4.0.0"
   },
   "scripts": {
-    "test": "mocha --opts test/mocha.opts test/*.js",
-    "coverage": "istanbul cover _mocha -- --reporter dot --opts test/mocha.opts test/*.js",
+    "test": "mocha --opts test/mocha.opts test/*.test.js",
+    "coverage": "istanbul cover _mocha -- --reporter dot --opts test/mocha.opts test/*.test.js",
     "lint": "eslint --ignore-path .gitignore ."
   },
   "files": [

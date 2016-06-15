@@ -8,7 +8,7 @@ function has(object, property) {
   return Object.prototype.hasOwnProperty.call(object, property);
 }
 
-function BaseError(message, properties) {
+function UserError(message, properties) {
   if (typeof message === 'object' && message !== null) {
     properties = message;
     message = null;
@@ -31,7 +31,7 @@ function BaseError(message, properties) {
   }
 }
 
-util.inherits(BaseError, Error);
+util.inherits(UserError, Error);
 
-module.exports = BaseError;
+module.exports = UserError;
 

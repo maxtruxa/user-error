@@ -1,61 +1,61 @@
-# @maxtruxa/base-error
+# user-error
 
 npm package that simplifies inheriting from `Error`.
 
 ```js
-const BaseError = require('@maxtruxa/base-error');
+const UserError = require('user-error');
 
-throw new BaseError('Hello, World!', {additional: 'information'});
+throw new UserError('Hello, World!', {additional: 'information'});
 ```
 
 ## Installing
 
 ```bash
-npm install @maxtruxa/base-error
+npm install user-error
 ```
 
 ## Features
 
 - Subclasses `Error` without breaking standard behavior.
-- Like `Error`, `BaseError` takes a message as first argument.
+- Like `Error`, `UserError` takes a message as first argument.
 - Add properties by simply passing in an object as second or first argument
 - Properties are enumerable.
   That means serialization using `JSON.stringify` works as expected.
 
 ## Usage
 
-Just `require` the package to get `BaseError` and either build your own error class on top of it or use it directly.
+Just `require` the package to get `UserError` and either build your own error class on top of it or use it directly.
 
 ### Direct Usage
 
 ```js
-const BaseError = require('@maxtruxa/base-error');
+const UserError = require('user-error');
 
-throw new BaseError('oops', {additional: 'information'});
+throw new UserError('oops', {additional: 'information'});
 ```
 
 ### Inheriting
 
 ```js
 const util = require('util');
-const BaseError = require('@maxtruxa/base-error');
+const UserError = require('user-error');
 
 // Custom error class that take an additional "error id" as first argument.
 function MyError(id, message, properties) {
-  BaseError.call(this, message, properties);
+  UserError.call(this, message, properties);
   this.id = id;
 }
 
-util.inherits(MyError, BaseError);
+util.inherits(MyError, UserError);
 
-throw new MyError('oops_error', 'oops');
+throw new MyError('foo_error', 'oops');
 ```
 
 When nesting exceptions, the inner exception should be called `inner` by convention:
 
 ```js
 try {
-  throw new BaseError('oops');
+  throw new UserError('oops');
 } catch (err) {
   // "MyError" from the inheritance example above.
   throw new MyError('internal_error', 'something failed', {inner: err});
