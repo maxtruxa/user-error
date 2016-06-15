@@ -1,5 +1,10 @@
 # user-error
 
+[![npm Version][npm-image]][npm-url]
+[![npm Downloads][downloads-image]][downloads-url]
+[![Test Status][travis-image]][travis-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
+
 npm package that simplifies inheriting from `Error`.
 
 ```js
@@ -77,4 +82,13 @@ Linting is done with `npm run lint`.
 ## License
 
 [MIT](LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/user-error.svg
+[npm-url]: https://npmjs.org/package/user-error
+[downloads-image]: https://img.shields.io/npm/dm/user-error.svg
+[downloads-url]: https://npmjs.org/package/user-error
+[travis-image]: https://img.shields.io/travis/maxtruxa/user-error/master.svg
+[travis-url]: https://travis-ci.org/maxtruxa/user-error
+[coveralls-image]: https://img.shields.io/coveralls/maxtruxa/user-error/master.svg
+[coveralls-url]: https://coveralls.io/r/maxtruxa/user-error?branch=master
 
