@@ -45,7 +45,7 @@ throw new UserError('oops', {additional: 'information'});
 const util = require('util');
 const UserError = require('user-error');
 
-// Custom error class that take an additional "error id" as first argument.
+// Custom error class that takes an additional "error id" as first argument.
 function MyError(id, message, properties) {
   UserError.call(this, message, properties);
   this.id = id;
