@@ -2,9 +2,16 @@
   "name": "user-error",
   "version": "0.1.0",
   "description": "Easily extensible error class for Node.js",
-  "main": "index.js",
   "author": "Max Truxa <dev@maxtruxa.com> (http://maxtruxa.com/)",
+  "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxtruxa/user-error.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxtruxa/user-error/issues"
+  },
   "dependencies": {
     "lodash.assign": "^4.0.9"
   },
@@ -29,5 +36,8 @@
     ".eslintrc.yaml",
     "examples/",
     "test/"
+  ],
+  "keywords": [
+    "error"
   ]
 }
