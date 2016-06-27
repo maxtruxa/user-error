@@ -4,6 +4,7 @@
 [![npm Downloads][downloads-image]][downloads-url]
 [![Test Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
+[![MIT Licensed][license-image]][license-url]
 
 npm package that simplifies inheriting from `Error`.
 
@@ -91,4 +92,6 @@ Linting is done with `npm run lint`.
 [travis-url]: https://travis-ci.org/maxtruxa/user-error
 [coveralls-image]: https://img.shields.io/coveralls/maxtruxa/user-error/master.svg
 [coveralls-url]: https://coveralls.io/r/maxtruxa/user-error?branch=master
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg
+[license-url]: https://raw.githubusercontent.com/maxtruxa/user-error/master/LICENSE
 
