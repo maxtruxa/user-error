@@ -14,7 +14,7 @@ describe('UserError', function() {
 
     it('should be an instance of UserError', function() {
       var err = new UserError();
-      expect(err).to.be.an(UserError);
+      expect(err).to.be.a(UserError);
     });
 
     it('should be an instance of Error', function() {
