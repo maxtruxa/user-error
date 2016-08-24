@@ -1,6 +1,5 @@
 'use strict';
 
-const util = require('util');
 const _ = {};
 _.assign = require('lodash.assign');
 
@@ -31,7 +30,9 @@ function UserError(message, properties) {
   }
 }
 
-util.inherits(UserError, Error);
+UserError.prototype = Object.create(Error.prototype, {
+  constructor: {value: UserError, configurable: true, writable: true}
+});
 
 module.exports = UserError;
 
