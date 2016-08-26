@@ -14,7 +14,7 @@ const UserError = require('user-error');
 throw new UserError('Hello, World!', {additional: 'information'});
 ```
 
-## Installing
+## Installation
 
 ```bash
 npm install user-error
@@ -43,7 +43,6 @@ throw new UserError('oops', {additional: 'information'});
 ### Inheriting
 
 ```js
-const util = require('util');
 const UserError = require('user-error');
 
 // Custom error class that takes an additional "error id" as first argument.
@@ -52,7 +51,9 @@ function MyError(id, message, properties) {
   this.id = id;
 }
 
-util.inherits(MyError, UserError);
+MyError.prototype = Object.create(UserError.prototype, {
+  constructor: {value: MyError, configurable: true, writable: true}
+});
 
 throw new MyError('foo_error', 'oops');
 ```
@@ -66,6 +67,58 @@ try {
   // "MyError" from the inheritance example above.
   throw new MyError('internal_error', 'something failed', {inner: err});
 }
+```
+
+## API
+
+### new UserError(message, properties)
+
+Create a new error with the specified message and properties.
+
+The resulting object has the following properties:
+
+- `name`
+- `message`
+- `stack`
+- additional properties (copied from the `properties` argument)
+
+`name` is taken from (in that order):
+- `properties.name` (useful for overriding the name without inheriting)
+- `this.constructor.prototype.name` (useful for minified code)
+- `this.constructor.name`
+
+`message` is taken from (in that order):
+- `properties.message`
+- `message`
+
+`stack` is taken from (in that order):
+- `properties.stack`
+- generated using `Error.captureStackTrace` (if available)
+
+#### message
+
+*anything* (default = `''`)
+
+The `message` property of the error. The value is always converted to a *string*.
+
+```js
+new UserError(); // default
+
+new UserError('test');
+```
+
+#### properties
+
+*object* (default = `{}`)
+
+Additional properties to be assigned to the error.
+
+```js
+new UserError(); // default
+
+new UserError({foo: 'bar'}); // without message
+
+new UserError('test', {baz: 'qux'}); // with message
 ```
 
 ## Tests
