@@ -12,9 +12,7 @@
   "bugs": {
     "url": "https://github.com/maxtruxa/user-error/issues"
   },
-  "dependencies": {
-    "lodash.assign": "^4.0.9"
-  },
+  "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.11.9",
     "eslint": "^2.5.3",
