@@ -1,6 +1,6 @@
 {
   "name": "user-error",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Easily extensible error class for Node.js",
   "author": "Max Truxa <dev@maxtruxa.com> (http://maxtruxa.com/)",
   "main": "index.js",
