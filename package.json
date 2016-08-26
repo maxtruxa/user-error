@@ -1,6 +1,6 @@
 {
   "name": "user-error",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Easily extensible error class for Node.js",
   "author": "Max Truxa <dev@maxtruxa.com> (http://maxtruxa.com/)",
   "main": "index.js",
@@ -12,9 +12,7 @@
   "bugs": {
     "url": "https://github.com/maxtruxa/user-error/issues"
   },
-  "dependencies": {
-    "lodash.assign": "^4.0.9"
-  },
+  "dependencies": {},
   "devDependencies": {
     "coveralls": "^2.11.9",
     "eslint": "^2.5.3",
@@ -40,6 +38,7 @@
     "test/"
   ],
   "keywords": [
-    "error"
+    "error",
+    "exception"
   ]
 }

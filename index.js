@@ -1,37 +1,51 @@
 'use strict';
 
-const util = require('util');
-const _ = {};
-_.assign = require('lodash.assign');
-
-function has(object, property) {
-  return Object.prototype.hasOwnProperty.call(object, property);
-}
+var hasOwn = Object.prototype.hasOwnProperty;
 
 function UserError(message, properties) {
   if (typeof message === 'object' && message !== null) {
     properties = message;
-    message = null;
-  } else if (typeof message === 'undefined') {
-    message = null;
+    message = undefined;
   }
 
-  _.assign(this, properties);
+  Object.assign(this, properties);
 
-  if (!has(this, 'name')) {
-    this.name = this.constructor.name;
+  // Take name from:
+  // - properties
+  // - this.constructor.prototype.name
+  // - this.constructor.name
+  var name;
+  if (hasOwn.call(this, 'name')) {
+    name = this.name;
+  } else if (hasOwn.call(this.constructor.prototype, 'name')) {
+    name = this.constructor.prototype.name;
+  } else {
+    name = this.constructor.name;
   }
+  this.name = '' + name;
 
-  if (!has(this, 'message') || message !== null) {
-    this.message = message;
+  // Take message from:
+  // - properties
+  // - message
+  if (hasOwn.call(this, 'message')) {
+    message = this.message;
   }
+  this.message = typeof message === 'undefined' ? '' : '' + message;
 
-  if (!has(this, 'stack')) {
+  // Take stack from:
+  // - properties
+  // - capture new stacktrace (if captureStackTrace is available)
+  if (!hasOwn.call(this, 'stack') && hasOwn.call(Error, 'captureStackTrace')) {
     Error.captureStackTrace(this, this.constructor);
   }
 }
 
-util.inherits(UserError, Error);
+UserError.prototype = Object.create(Error.prototype, {
+  constructor: {value: UserError, configurable: true, writable: true}
+});
+
+// Set name explicitly in case code gets minified.
+UserError.prototype.name = 'UserError';
 
 module.exports = UserError;
 
