@@ -11,25 +11,25 @@ function inherits(target, source) {
 
 describe('UserError', function() {
 
-  it('should be exported', function() {
+  it('is exported', function() {
     expect(UserError).to.be.a('function');
   });
 
   describe('#constructor', function() {
 
-    it('should be an instance of UserError', function() {
+    it('is an instance of UserError', function() {
       let err = new UserError();
       expect(err).to.be.a(UserError);
     });
 
-    it('should be an instance of Error', function() {
+    it('is an instance of Error', function() {
       let err = new UserError();
       expect(err).to.be.an(Error);
     });
 
     // name
 
-    it('should set name from contructor prototype', function() {
+    it('sets name from contructor prototype', function() {
       function CustomError() { UserError.call(this); }
       inherits(CustomError, UserError);
       CustomError.prototype.name = 'FooError';
@@ -38,7 +38,7 @@ describe('UserError', function() {
       expect(err).to.have.own.property('name', 'FooError');
     });
 
-    it('should set name from contructor', function() {
+    it('sets name from contructor', function() {
       function CustomError() { UserError.call(this); }
       inherits(CustomError, UserError);
 
@@ -46,24 +46,24 @@ describe('UserError', function() {
       expect(err).to.have.own.property('name', 'CustomError');
     });
 
-    it('should set name from properties', function() {
+    it('sets name from properties', function() {
       let err = new UserError(undefined, {name: 'FooError'});
       expect(err).to.have.own.property('name', 'FooError');
     });
 
     // message
 
-    it('should set message to an empty string if none is given', function() {
+    it('sets message to an empty string if none is given', function() {
       let err = new UserError();
       expect(err).to.have.own.property('message', '');
     });
 
-    it('should set message', function() {
+    it('sets message', function() {
       let err = new UserError('foo bar');
       expect(err).to.have.own.property('message', 'foo bar');
     });
 
-    it('should set message from properties', function() {
+    it('sets message from properties', function() {
       let err = new UserError(undefined, {message: 'foo'});
       expect(err).to.have.own.property('message', 'foo');
     });
@@ -73,20 +73,20 @@ describe('UserError', function() {
       expect(err).to.have.own.property('message', '1234');
     });
 
-    it('should prefer message from properties', function() {
+    it('prefers message from properties', function() {
       let err = new UserError('foo', {message: 'bar'});
       expect(err).to.have.own.property('message', 'bar');
     });
 
     // properties
 
-    it('should set additional properties', function() {
+    it('sets additional properties', function() {
       let err = new UserError(undefined, {foo: 'bar', baz: 42});
       expect(err).to.have.own.property('foo', 'bar');
       expect(err).to.have.own.property('baz', 42);
     });
 
-    it('should accept properties as first argument', function() {
+    it('accepts properties as first argument', function() {
       let err = new UserError({foo: 'bar'});
       expect(err).to.have.own.property('message', '');
       expect(err).to.have.own.property('foo', 'bar');
@@ -94,7 +94,7 @@ describe('UserError', function() {
 
     // stack
 
-    it('should set stack', function() {
+    it('sets stack', function() {
       let err = new UserError('foo');
       expect(err).to.have.own.property('stack');
       let stack = err.stack.split(/\n\s*/);
@@ -102,7 +102,7 @@ describe('UserError', function() {
       expect(stack[1]).to.contain('test/index.test.js');
     });
 
-    it('should set stack from properties', function() {
+    it('sets stack from properties', function() {
       let stack = {};
       let err = new UserError({stack});
       expect(err).to.have.own.property('stack', stack);
@@ -112,12 +112,12 @@ describe('UserError', function() {
 
   describe('#toString', function() {
 
-    it('should return correctly formatted string', function() {
+    it('returns correctly formatted string', function() {
       let err = new UserError({name: 'CustomError'});
       expect(err.toString()).to.equal('CustomError');
     });
 
-    it('should return correctly formatted string with message', function() {
+    it('returns correctly formatted string with message', function() {
       let err = new UserError('test');
       expect(err.toString()).to.equal('UserError: test');
     });
@@ -126,7 +126,7 @@ describe('UserError', function() {
 
   describe('JSON.stringify', function() {
 
-    it('should serialize name and message', function() {
+    it('serializes name and message', function() {
       let err = new UserError('test');
       let str = JSON.stringify(err);
       let obj = JSON.parse(str);
@@ -134,7 +134,7 @@ describe('UserError', function() {
       expect(obj).to.have.own.property('message', 'test');
     });
 
-    it('should serialize additional properties', function() {
+    it('serializes additional properties', function() {
       let err = new UserError({foo: 'bar', baz: 'qux'});
       let str = JSON.stringify(err);
       let obj = JSON.parse(str);
