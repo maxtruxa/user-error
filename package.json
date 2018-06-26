@@ -1,7 +1,7 @@
 {
   "name": "user-error",
   "version": "2.0.0",
-  "description": "Easily extensible error class for Node.js",
+  "description": "Extensible error class for Node.js",
   "author": "Max Truxa <dev@maxtruxa.com> (http://maxtruxa.com/)",
   "main": "index.js",
   "license": "MIT",
@@ -14,28 +14,29 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "coveralls": "^2.11.9",
-    "eslint": "^2.5.3",
-    "expect.js": "^0.3.1",
-    "istanbul": "^0.4.2",
-    "mocha": "^2.4.5"
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.1",
+    "eslint": "^5.0.1",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "publish-please": "^3.1.0"
   },
   "engines": {
-    "node": ">=4.0"
+    "node": ">=6.0"
   },
   "scripts": {
-    "test": "mocha --opts test/mocha.opts test/*.test.js",
-    "test-ci": "istanbul cover _mocha --report lcovonly -- --opts test/mocha.opts test/*.test.js",
-    "coverage": "istanbul cover _mocha -- --reporter dot --opts test/mocha.opts test/*.test.js",
-    "lint": "eslint --ignore-path .gitignore ."
+    "test": "nyc -- mocha --opts test/mocha.opts test/*.test.js",
+    "test-ci": "nyc --reporter=lcovonly -- mocha --opts test/mocha.opts test/*.test.js",
+    "coverage": "nyc -- mocha --reporter dot --opts test/mocha.opts test/*.test.js",
+    "lint": "eslint --ignore-path .gitignore --cache .",
+    "publish-please": "publish-please",
+    "prepublishOnly": "publish-please guard",
+    "publish-checks": "npm run lint && npm test"
   },
   "files": [
     "LICENSE",
     "README.md",
-    "index.js",
-    ".eslintrc.yaml",
-    "examples/",
-    "test/"
+    "index.js"
   ],
   "keywords": [
     "error",
