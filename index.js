@@ -11,7 +11,7 @@ function UserError(message, properties) {
   Object.assign(this, properties);
 
   // Take name from:
-  // - properties
+  // - properties.name
   // - this.constructor.prototype.name
   // - this.constructor.name
   var name;
@@ -25,7 +25,7 @@ function UserError(message, properties) {
   this.name = '' + name;
 
   // Take message from:
-  // - properties
+  // - properties.message
   // - message
   if (hasOwn.call(this, 'message')) {
     message = this.message;
@@ -33,7 +33,7 @@ function UserError(message, properties) {
   this.message = typeof message === 'undefined' ? '' : '' + message;
 
   // Take stack from:
-  // - properties
+  // - properties.stack
   // - capture new stacktrace (if captureStackTrace is available)
   if (!hasOwn.call(this, 'stack') && hasOwn.call(Error, 'captureStackTrace')) {
     Error.captureStackTrace(this, this.constructor);
