@@ -1,4 +1,4 @@
-# user-error
+# @maxtruxa/user-error
 
 [![npm Version][npm-image]][npm-url]
 [![npm Downloads][downloads-image]][downloads-url]
@@ -9,7 +9,7 @@
 npm package that simplifies inheriting from `Error`.
 
 ```js
-const UserError = require('user-error');
+const UserError = require('@maxtruxa/user-error');
 
 throw new UserError('Hello, World!', {additional: 'information'});
 ```
@@ -17,7 +17,7 @@ throw new UserError('Hello, World!', {additional: 'information'});
 ## Installation
 
 ```bash
-npm install user-error
+npm install @maxtruxa/user-error
 ```
 
 ## Features
@@ -35,7 +35,7 @@ Just `require` the package to get `UserError` and either build your own error cl
 ### Direct Usage
 
 ```js
-const UserError = require('user-error');
+const UserError = require('@maxtruxa/user-error');
 
 throw new UserError('oops', {additional: 'information'});
 ```
@@ -43,7 +43,7 @@ throw new UserError('oops', {additional: 'information'});
 ### Inheriting
 
 ```js
-const UserError = require('user-error');
+const UserError = require('@maxtruxa/user-error');
 
 // Custom error class that takes an additional "error id" as first argument.
 function MyError(id, message, properties) {
@@ -140,8 +140,8 @@ Linting is done with `npm run lint`.
 [downloads-url]: https://npmjs.org/package/user-error
 [travis-image]: https://img.shields.io/travis/maxtruxa/user-error/master.svg
 [travis-url]: https://travis-ci.org/maxtruxa/user-error
-[coveralls-image]: https://img.shields.io/coveralls/maxtruxa/user-error/master.svg
-[coveralls-url]: https://coveralls.io/r/maxtruxa/user-error?branch=master
+[coveralls-image]: https://coveralls.io/repos/github/maxtruxa/user-error/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/maxtruxa/user-error?branch=master
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: https://raw.githubusercontent.com/maxtruxa/user-error/master/LICENSE
 
