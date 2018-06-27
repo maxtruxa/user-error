@@ -140,8 +140,8 @@ Linting is done with `npm run lint`.
 [downloads-url]: https://npmjs.org/package/user-error
 [travis-image]: https://img.shields.io/travis/maxtruxa/user-error/master.svg
 [travis-url]: https://travis-ci.org/maxtruxa/user-error
-[coveralls-image]: https://img.shields.io/coveralls/maxtruxa/user-error/master.svg
-[coveralls-url]: https://coveralls.io/r/maxtruxa/user-error?branch=master
+[coveralls-image]: https://coveralls.io/repos/github/maxtruxa/user-error/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/maxtruxa/user-error?branch=master
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg
 [license-url]: https://raw.githubusercontent.com/maxtruxa/user-error/master/LICENSE
 
