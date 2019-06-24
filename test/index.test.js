@@ -68,7 +68,7 @@ describe('UserError', function() {
       expect(err).to.have.own.property('message', 'foo');
     });
 
-    it('converts the message to string', function() {
+    it('converts the message to a string', function() {
       let err = new UserError(1234);
       expect(err).to.have.own.property('message', '1234');
     });
@@ -112,14 +112,19 @@ describe('UserError', function() {
 
   describe('#toString', function() {
 
+    it('returns a string', function() {
+      let err = new UserError();
+      expect(err.toString()).to.be.a('string');
+    });
+
     it('returns a correctly formatted string', function() {
       let err = new UserError({name: 'CustomError'});
-      expect(err.toString()).to.be.a('string').and.to.equal('CustomError');
+      expect(err.toString()).to.equal('CustomError');
     });
 
     it('returns a correctly formatted string with a message', function() {
       let err = new UserError('test');
-      expect(err.toString()).to.be.a('string').and.to.equal('UserError: test');
+      expect(err.toString()).to.equal('UserError: test');
     });
 
   });
