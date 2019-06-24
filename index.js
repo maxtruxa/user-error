@@ -1,6 +1,6 @@
 'use strict';
 
-var hasOwn = Object.prototype.hasOwnProperty;
+const hasOwn = Object.prototype.hasOwnProperty;
 
 function UserError(message, properties) {
   if (typeof message === 'object' && message !== null) {
@@ -14,7 +14,7 @@ function UserError(message, properties) {
   // - properties.name
   // - this.constructor.prototype.name
   // - this.constructor.name
-  var name;
+  let name;
   if (hasOwn.call(this, 'name')) {
     name = this.name;
   } else if (hasOwn.call(this.constructor.prototype, 'name')) {

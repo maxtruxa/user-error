@@ -8,5 +8,5 @@ globals:
 
 rules:
   no-process-env: 'off'
-  valid-jsdoc: 'off'
+  padded-blocks: 'off'
 
