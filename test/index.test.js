@@ -30,7 +30,9 @@ describe('UserError', function() {
     // name
 
     it('sets the name from the contructor\'s prototype', function() {
-      function CustomError() { UserError.call(this); }
+      function CustomError() {
+        UserError.call(this);
+      }
       inherits(CustomError, UserError);
       CustomError.prototype.name = 'FooError';
 
@@ -39,7 +41,9 @@ describe('UserError', function() {
     });
 
     it('sets the name from the contructor', function() {
-      function CustomError() { UserError.call(this); }
+      function CustomError() {
+        UserError.call(this);
+      }
       inherits(CustomError, UserError);
 
       let err = new CustomError();
